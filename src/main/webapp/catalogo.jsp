@@ -69,6 +69,7 @@
                         String imgSrc = (foto.startsWith("http://") || foto.startsWith("https://")) ? foto : ("img/" + foto);
                         boolean disponible = "DISPONIBLE".equalsIgnoreCase(m.getEstado());
             %>
+            <!-- Despliegue dinámico de mascotas y control visual de estados -->
                 <div class="col-12 col-md-6 col-lg-3">
                     <div class="card h-100 shadow-sm pet-card bg-white">
                         <img src="<%= imgSrc %>" class="pet-img" alt="<%= m.getNombre() %>" onerror="this.src='img/perro_01.jpg'">

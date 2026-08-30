@@ -6,14 +6,14 @@ import java.sql.SQLException;
 
 /**
  * Clase encargada de gestionar y centralizar la conexión JDBC
- * con la base de datos relacional PostgreSQL.
+ * con la base de datos relacional PostgreSQL alojada en Render.
  */
 public class ConexionDB {
     
-    // Constantes de configuración de la conexión local
-    private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "root";
+    // Constantes de configuración apuntando a Render Cloud
+    private static final String URL = "jdbc:postgresql://dpg-daabou942hec73a2rstg-a.oregon-postgres.render.com/adopcion_db_hcma?sslmode=require";
+    private static final String USER = "adopcion_db_hcma_user";
+    private static final String PASSWORD = "yaLNv2GfHiiARh6faFRQvyFXKSVg5ESZ";
 
     /**
      * Establece y retorna una conexión activa hacia la base de datos.
@@ -27,11 +27,9 @@ public class ConexionDB {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException e) {
-            // Captura de error si no se encuentra el archivo .jar del driver
             System.err.println("Error: Driver de PostgreSQL no encontrado -> " + e.getMessage());
         } catch (SQLException e) {
-            // Captura de errores de credenciales o indisponibilidad del servicio
-            System.err.println("Error al conectar con la base de datos -> " + e.getMessage());
+            System.err.println("Error al conectar con la base de datos en Render -> " + e.getMessage());
         }
         return con;
     }

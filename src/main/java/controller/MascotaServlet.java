@@ -25,7 +25,7 @@ public class MascotaServlet extends HttpServlet {
         if (action == null || action.trim().isEmpty()) {
             action = "catalogo";
         }
-
+        
         HttpSession session = request.getSession();
         Usuario usuarioActual = (Usuario) session.getAttribute("usuarioSesion");
 
